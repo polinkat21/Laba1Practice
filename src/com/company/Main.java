@@ -6,6 +6,8 @@ import lru_cache.ILruCache;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.MAX_VALUE;
+
 /*Реализовать фабрику (или фабричный метод), которая позволяет
 получить объекты LruCache с указанными типами параметризации.
 При этом возращаться должен экземпляр класса-прокси, который
@@ -26,22 +28,17 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int lruCacheType;
+        int lruCacheSize;
         LruCacheFabric<Integer, Integer> fabric = new LruCacheFabric<>();
 
-        do {
-            System.out.println("Выберите пункт меню");
-            System.out.println("0 - обычный LRU кеш");
-            System.out.println("1 - прокси LRU кеш");
-            System.out.println("Ваш выбор: ");
-            lruCacheType=scanner.nextInt();
-            if (lruCacheType!=0 && lruCacheType!=1)
-                System.out.println("Ошибочное значение пункта меню. Повторите выбор");
-        }while(!(lruCacheType==0||lruCacheType==1));
+        System.out.println("Выберите пункт меню:");
+        System.out.println("0 - обычный LRU кеш");
+        System.out.println("1 - прокси LRU кеш");
+        lruCacheType = Menu.inputNumber("Ваш выбор:", 0, 1);
 
-        System.out.println("Введите размер LRU кеш");
-        ILruCache<Integer,Integer> lruCache=fabric.CreateLruCache(lruCacheType,scanner.nextInt());
+        lruCacheSize = Menu.inputNumber("Введите размер LRU кеш:", 1, MAX_VALUE);
+        ILruCache<Integer,Integer> lruCache=fabric.CreateLruCache(lruCacheType,lruCacheSize);
 
         Menu menu=new Menu(lruCache);
         menu.Start();
