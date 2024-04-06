@@ -1,6 +1,6 @@
-package menu;
+package Lru;
 
-import lru_cache.ILruCache;
+import Lru.ILruCache;
 
 import java.util.Scanner;
 

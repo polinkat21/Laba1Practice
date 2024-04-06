@@ -1,4 +1,4 @@
-package lru_cache;
+package Lru;
 
 public class Elem<K, V> {
     K key;

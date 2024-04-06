@@ -1,10 +1,8 @@
-package com.company;
-
-import fabric.LruCacheFabric;
-import menu.Menu;
-import lru_cache.ILruCache;
+package Lru;
 
 import java.util.Scanner;
+import Lru.ILruCache;
+import Lru.Menu;
 
 import static java.lang.Integer.MAX_VALUE;
 

@@ -1,8 +1,5 @@
-package fabric;
+package Lru;
 
-import lru_cache.ILruCache;
-import lru_cache.LruCache;
-import lru_cache.LruCacheInvocationHandler;
 import java.lang.reflect.Proxy;
 
 public class LruCacheFabric<K, V> {
