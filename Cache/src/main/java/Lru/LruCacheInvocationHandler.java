@@ -11,7 +11,7 @@ public class LruCacheInvocationHandler<K,V> implements InvocationHandler{
         this.lruCache=lruCache;
     }
 
-    private Object setElem(Method method, Object[] args)throws Throwable{
+    Object setElem(Method method, Object[] args)throws Throwable{
         long timeBegin = System.nanoTime();
         Object methodResult = method.invoke(lruCache, args);
         long spentTime = System.nanoTime() - timeBegin;
@@ -24,7 +24,7 @@ public class LruCacheInvocationHandler<K,V> implements InvocationHandler{
         return methodResult;
     }
 
-    private Object getElem(Method method, Object[] args)throws Throwable{
+    Object getElem(Method method, Object[] args)throws Throwable{
         long timeBegin = System.nanoTime();
         Object methodResult = method.invoke(lruCache, args);
         long spentTime = System.nanoTime() - timeBegin;

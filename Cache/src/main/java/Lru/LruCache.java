@@ -81,7 +81,7 @@ public class LruCache <K,V> implements ILruCache<K,V> {
         return result;
     }
 
-    private int findMinPriorityElem() {
+    public int findMinPriorityElem() {
         int result = 0;
         for (int i = 1; i < currentSize; i++) {
             if (lruCache[i].priority < lruCache[result].priority)
@@ -106,5 +106,18 @@ public class LruCache <K,V> implements ILruCache<K,V> {
             result.add(lastTenKeys.get(index));
         }
         return result;
+    }
+
+    public String print()
+    {
+        String res = new String();
+        if (currentSize == 0)
+            res = "На данный момент элементов нет";
+        else {
+            res = "Все элементы:\n";
+            for (int i = 0; i < currentSize; i++)
+                res += "Ключ: " + lruCache[i].key + " Значение: " + lruCache[i].value + "\n";
+        }
+        return res;
     }
 }

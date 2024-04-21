@@ -34,7 +34,7 @@ public class Menu {
         return str;
     }
 
-    private void setElem()
+    public void setElem()
     {
         Integer key = inputNumber("Введите ключ элемента, который вы хотите добавить: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
         String value = inputString("Ввведите значение элемента");
@@ -42,7 +42,7 @@ public class Menu {
         System.out.println("Элемент с ключом " + key + " и значением " + value + " был добавлен в LRU кеш");
     }
 
-    private void getElem()
+    public void getElem()
     {
         Integer key = inputNumber("Введите ключ элемента, который вы хотите найти: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
 
@@ -57,6 +57,11 @@ public class Menu {
         }
     }
 
+    public void print()
+    {
+        System.out.println(lruCache.print());
+    }
+
     public void Start()
     {
         int choice;
@@ -64,7 +69,8 @@ public class Menu {
             System.out.println("0 - завершить");
             System.out.println("1 - добавить элемент");
             System.out.println("2 - получить значение по ключу");
-            choice = inputNumber("Ваш выбор: ", 0, 2);
+            System.out.println("3 - напечатать все элементы");
+            choice = inputNumber("Ваш выбор: ", 0, 3);
             switch (choice)
             {
                 case 1 -> {
@@ -73,6 +79,10 @@ public class Menu {
                 }
                 case 2->{
                     getElem();
+                    break;
+                }
+                case 3->{
+                    print();
                     break;
                 }
             }
