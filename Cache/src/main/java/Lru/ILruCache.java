@@ -10,4 +10,7 @@ public interface ILruCache <K, V>{
 
     //получить максимальный размер
     int getLimit();
+
+    //напечатать все элементы
+    String print();
 }
