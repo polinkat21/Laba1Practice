@@ -41,6 +41,11 @@ pipeline {
             steps {
                 bat 'copy "Aggregator\\target\\Aggregator-1.0-SNAPSHOT-jar-with-dependencies.jar" "publication\\main-1.0.jar"'
             }
+        stage('Test') {
+            sh "mvn clean org.jacoco:jacoco-maven-plugins:prepare-agent package"
+            // Публикуем отчет о покрытии кода в Jenkins
+            jacoco()
+        }
         }
     }
 }
