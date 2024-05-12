@@ -1,6 +1,6 @@
 package Lru;
 
-public interface ILruCache <K, V>{
+public interface ILruCache <K, V> {
 
     //получить значение по ключу
     V get(K key);

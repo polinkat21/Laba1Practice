@@ -1,9 +1,5 @@
 package Lru;
 
-import java.util.Scanner;
-import Lru.ILruCache;
-import Lru.Menu;
-
 import static java.lang.Integer.MAX_VALUE;
 
 /*Реализовать фабрику (или фабричный метод), которая позволяет
@@ -36,9 +32,9 @@ public class Main {
         lruCacheType = Menu.inputNumber("Ваш выбор:", 0, 1);
 
         lruCacheSize = Menu.inputNumber("Введите размер LRU кеш:", 1, MAX_VALUE);
-        ILruCache<Integer,Integer> lruCache=fabric.CreateLruCache(lruCacheType,lruCacheSize);
+        ILruCache<Integer, Integer> lruCache = fabric.CreateLruCache(lruCacheType, lruCacheSize);
 
-        Menu menu=new Menu(lruCache);
+        Menu menu = new Menu(lruCache);
         menu.Start();
     }
 }
