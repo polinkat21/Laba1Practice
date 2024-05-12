@@ -1,10 +1,11 @@
 package Lru;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class LruCache <K,V> implements ILruCache<K,V> {
+public class LruCache<K, V> implements ILruCache<K, V> {
     private Elem<K, V>[] lruCache;
-    private ArrayList<K>lastTenKeys;
+    private ArrayList<K> lastTenKeys;
     int indexFirstGet;
     private int maxSize;
     private int priority;
@@ -31,10 +32,9 @@ public class LruCache <K,V> implements ILruCache<K,V> {
     public V get(K key) {
         if (lastTenKeys.size() != 10)
             lastTenKeys.add(key);
-        else
-        {
+        else {
             lastTenKeys.set(indexFirstGet, key);
-            indexFirstGet = (indexFirstGet+1)%10;
+            indexFirstGet = (indexFirstGet + 1) % 10;
         }
         int index = findElem(key);
         if (index == -1)
@@ -61,7 +61,7 @@ public class LruCache <K,V> implements ILruCache<K,V> {
         else {
             //если не достигли максимального размера
             if (currentSize < getLimit()) {
-                lruCache[currentSize] = new Elem<K,V>();
+                lruCache[currentSize] = new Elem<K, V>();
                 lruCache[currentSize].key = key;
                 lruCache[currentSize].value = value;
                 lruCache[currentSize].priority = priority;
@@ -108,8 +108,7 @@ public class LruCache <K,V> implements ILruCache<K,V> {
         return result;
     }
 
-    public String print()
-    {
+    public String print() {
         String res = new String();
         if (currentSize == 0)
             res = "На данный момент элементов нет";

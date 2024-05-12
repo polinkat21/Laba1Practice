@@ -1,18 +1,15 @@
 package Lru;
 
-import Lru.ILruCache;
-
 import java.util.Scanner;
 
 public class Menu {
     private final ILruCache lruCache;
-    public Menu(ILruCache lruCache)
-    {
-        this.lruCache=lruCache;
+
+    public Menu(ILruCache lruCache) {
+        this.lruCache = lruCache;
     }
 
-    public static int inputNumber(String txt, int min, int max)
-    {
+    public static int inputNumber(String txt, int min, int max) {
         System.out.println(txt);
         int num;
         do {
@@ -25,8 +22,7 @@ public class Menu {
     }
 
     //ввод строки
-    public static String inputString(String txt)
-    {
+    public static String inputString(String txt) {
         System.out.println(txt);
         String str;
         Scanner in = new Scanner(System.in);
@@ -34,36 +30,30 @@ public class Menu {
         return str;
     }
 
-    public void setElem()
-    {
+    public void setElem() {
         Integer key = inputNumber("Введите ключ элемента, который вы хотите добавить: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
         String value = inputString("Ввведите значение элемента");
         lruCache.set(key, value);
         System.out.println("Элемент с ключом " + key + " и значением " + value + " был добавлен в LRU кеш");
     }
 
-    public void getElem()
-    {
+    public void getElem() {
         Integer key = inputNumber("Введите ключ элемента, который вы хотите найти: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         String el;
         try {
             el = lruCache.get(key).toString();
             System.out.println("Значение элемента с ключом " + key + ": " + el);
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Элемента с ключом " + key + " нет в LRU кеш");
         }
     }
 
-    public void print()
-    {
+    public void print() {
         System.out.println(lruCache.print());
     }
 
-    public void Start()
-    {
+    public void Start() {
         int choice;
         do {
             System.out.println("0 - завершить");
@@ -71,21 +61,20 @@ public class Menu {
             System.out.println("2 - получить значение по ключу");
             System.out.println("3 - напечатать все элементы");
             choice = inputNumber("Ваш выбор: ", 0, 3);
-            switch (choice)
-            {
+            switch (choice) {
                 case 1 -> {
                     setElem();
                     break;
                 }
-                case 2->{
+                case 2 -> {
                     getElem();
                     break;
                 }
-                case 3->{
+                case 3 -> {
                     print();
                     break;
                 }
             }
-        } while(choice != 0);
+        } while (choice != 0);
     }
 }
