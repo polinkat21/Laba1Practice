@@ -9,6 +9,7 @@ public class Menu {
         this.lruCache = lruCache;
     }
 
+    //ввод числа
     public static int inputNumber(String txt, int min, int max) {
         System.out.println(txt);
         int num;
