@@ -46,7 +46,7 @@ public class LruCache <K,V> implements ILruCache<K,V> {
         return result;
     }
 
-    //добвление/обновление элемента
+    //добвление или обновление элемента
     public V set(K key, V value) {
         int index = findElem(key);
         V result = null;
