@@ -117,6 +117,7 @@ public class LruCache<K, V> implements ILruCache<K, V> {
             for (int i = 0; i < currentSize; i++)
                 res += "Ключ: " + lruCache[i].key + " Значение: " + lruCache[i].value + "\n";
         }
+        printHello();
         return res;
     }
 
