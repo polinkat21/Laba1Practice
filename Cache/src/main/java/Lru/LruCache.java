@@ -119,4 +119,8 @@ public class LruCache<K, V> implements ILruCache<K, V> {
         }
         return res;
     }
+
+    public void printHello(){
+        System.out.println("Hello world");
+    }
 }
